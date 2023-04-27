@@ -5,8 +5,6 @@ import { useSupabase } from "../supabase-provider";
 const SignUpComp = () => {
   const { supabase } = useSupabase();
 
-  console.log("supabase", supabase);
-
   const signUp = async (email: any, username: any, password: any) => {
     const { data, error } = await supabase.auth.signUp({
       email,
