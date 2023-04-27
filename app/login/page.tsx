@@ -2,10 +2,11 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useRef } from "react";
-import { useSupabase } from "@/(context)/supabase-provider";
-
+import { useSupabase } from "../supabase-provider";
 const Login = () => {
-  const { supabase, session } = useSupabase();
+  const { supabase } = useSupabase();
+  console.log("supabase", supabase);
+
   const router = useRouter();
   const signIn = async (email: any, password: any) => {
     console.log("email", email, password);

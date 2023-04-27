@@ -1,15 +1,18 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useRef } from "react";
-import supabaseClient from "@/utils/supabaseClient";
-
+import { useSupabase } from "../supabase-provider";
 const SignUpComp = () => {
+  const { supabase } = useSupabase();
+
+  console.log("supabase", supabase);
+
   const signUp = async (email: any, username: any, password: any) => {
-    const { data, error } = await supabaseClient.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: {
-        data: { username },
+        data: { username, email },
       },
     });
     console.log("error", error);
